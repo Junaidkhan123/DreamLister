@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D3FBCC791FE06B596167A0EA967E64F00941E023",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B973F164BF67BC823C11B5B7073C905CFC0C6791" : 9223372036854775807,
+    "D3FBCC791FE06B596167A0EA967E64F00941E023" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "669E6FD9-A835-4570-BC44-EB2B9A0EB9ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B973F164BF67BC823C11B5B7073C905CFC0C6791" : "",
+    "D3FBCC791FE06B596167A0EA967E64F00941E023" : "DreamLister\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DreamLister",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DreamLister.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Junaidkhan123\/open-search-movie.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B973F164BF67BC823C11B5B7073C905CFC0C6791"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Junaidkhan123\/DreamLister.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3FBCC791FE06B596167A0EA967E64F00941E023"
+    }
+  ]
+}

@@ -21,7 +21,9 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     @IBOutlet weak var storePicker: UIPickerView!
     var stores = [Store]()
+    var itemToBeEdit : Items?
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         storePicker.delegate = self
         storePicker.dataSource = self
@@ -50,6 +52,11 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
 //        
 //        ad.saveContext()
         getStoreData()
+        
+        if itemToBeEdit != nil
+        {
+            loadItemData()
+        }
 }
     
     
@@ -82,5 +89,30 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
             print("\(error)")
         }
     }
+    
+    
+    @IBAction func savePressed(_ sender: Any) {
+        let item = Items(context: context)
+        if let title = titleTextField.text
+        {
+            item.title = title
+        }
+        if let price = priceTextField.text
+        {
+            item.price = (price as NSString).doubleValue
+        }
+        if let details = detailsTextField.text {
+            item.details = details
+        }
+        item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        ad.saveContext()
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func loadItemData()
+    {
+        
+    }
+    
     
 }
