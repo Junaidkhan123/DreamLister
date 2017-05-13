@@ -19,7 +19,6 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetch
         super.viewDidLoad()
        dreamListerTable.delegate = self
         dreamListerTable.dataSource = self
-        //generateTestData()
         attemptFetch()
       
        
@@ -82,7 +81,21 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetch
     {
         let  fetchRequest : NSFetchRequest<Items> = Items.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
+        let priceSort =  NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        if segmentedButtons.selectedSegmentIndex == 0
+        {
+            fetchRequest.sortDescriptors = [dateSort]
+        }
+        else if segmentedButtons.selectedSegmentIndex == 1
+        {
+            fetchRequest.sortDescriptors = [priceSort]
+        }
+        else if segmentedButtons.selectedSegmentIndex == 2
+        {
+            fetchRequest.sortDescriptors = [titleSort]
+        }
+        
         
         
         // context parameter is derived from AppDelegate
@@ -141,34 +154,10 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetch
             }
         }
     }
-    func generateTestData()
-    {
-        let item = Items(context: context)
-        item.title = "Mac Book Pro"
-        item.price = 132600
-        item.details = "I cant wait for this . I am waiting just becaues of shor of money, hope that soon I will get it "
-        
-        let item2 = Items(context: context)
-        item2.title = "Folding Chair"
-        item2.price = 1500
-        item2.details = "This is the best chair to use it for sit for laptop doing somne awesome stuff"
-        let item3 = Items(context: context)
-        item3.title = "Tesla Model S"
-        item3.price = 1000000
-        item3.details = "This is the AWeosme car , I dont  know when this day will come , I will have it my own , just wait for it"
-        
-        
-        let item4  = Items(context: context)
-        item4.title = "NIA HeadPhones"
-        item4.price = 1500
-        item4.details = "This item has awesome bass , you can believe it that such headphones can generate such high bass , I will definetly have it"
-        
-        let item5 = Items(context: context)
-        item5.title = "iMac"
-        item5.price = 172000
-        item5.details = "Well, If I say this is my first priority I will not be wrong , Is it my favourite and this is my one of biggest dream to have it and enjoy it "
-        
-        ad.saveContext()
+    
+    @IBAction func segmentChange(_ sender: Any) {
+        attemptFetch()
+        dreamListerTable.reloadData()
     }
 }
 
