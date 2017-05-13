@@ -55,6 +55,29 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource,NSFetch
     
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objs = controller.fetchedObjects, objs.count > 0
+        {
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: "ItemsDetailsVC", sender: item)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "ItemsDetailsVC"
+        {
+            if let detailVCDestination = segue.destination as? ItemsDeatilsVC
+            {
+             if let item = sender as?  Items
+             {
+                 detailVCDestination.itemToBeEdit = item
+                }
+                
+            }
+        }
+    }
+    
     func attemptFetch()
     {
         let  fetchRequest : NSFetchRequest<Items> = Items.fetchRequest()

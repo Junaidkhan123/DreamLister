@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DreamLister/MainVC.swift"
-            timestampString = "516276330.491514"
+            timestampString = "516301232.887397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ItemsDeatilsVC.swift"
-            timestampString = "516277515.751559"
+            timestampString = "516337408.261602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "pickerView(_:titleForRow:forComponent:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "numberOfComponents(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ItemsDeatilsVC.swift"
-            timestampString = "516277515.751559"
+            timestampString = "516338728.521868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "savePressed(_:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "ItemsDeatilsVC"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ItemsDeatilsVC.swift"
+            timestampString = "516338728.521868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "addImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

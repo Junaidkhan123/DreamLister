@@ -8,10 +8,7 @@
 
 import UIKit
 import CoreData
-class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
-   
-
-    
+class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     @IBOutlet weak var titleTextField: CustomTextField!
     
     
@@ -20,13 +17,17 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var detailsTextField: CustomTextField!
     
     @IBOutlet weak var storePicker: UIPickerView!
+    @IBOutlet weak var thmbImage: UIImageView!
     var stores = [Store]()
     var itemToBeEdit : Items?
+    var imagePicker : UIImagePickerController!
     override func viewDidLoad() {
        
         super.viewDidLoad()
         storePicker.delegate = self
         storePicker.dataSource = self
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self 
         
         if let topItem = self.navigationController?.navigationBar.topItem
         {
@@ -92,7 +93,22 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     
     @IBAction func savePressed(_ sender: Any) {
-        let item = Items(context: context)
+        var item: Items!
+        
+        // creating Image Entity 
+        let picture = Image(context: context)
+        picture.image = thmbImage.image
+        
+        
+        if itemToBeEdit == nil
+        {
+             item = Items(context: context)
+        }
+        else
+        {
+            item = itemToBeEdit
+        }
+        item.toImage = picture
         if let title = titleTextField.text
         {
             item.title = title
@@ -111,8 +127,48 @@ class ItemsDeatilsVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     func loadItemData()
     {
+        if let item = itemToBeEdit
+        {
+            titleTextField.text = item.title
+            priceTextField.text = "\(item.price)"
+            detailsTextField.text = item.details
+            thmbImage.image = item.toImage?.image as? UIImage
+            if let store = item.toStore
+            {
+                var index = 0
+                repeat
+                {
+                    let s = stores[index]
+                    if s.name == store.name
+                    {
+                        storePicker.selectRow(index, inComponent: 0, animated: false)
+                        break
+                    }
+                    index += 1 
+                }
+                while (index < stores.count)
+            }
+        }
         
     }
     
+    @IBAction func deletePressed(_ sender: Any) {
+        if itemToBeEdit != nil
+        {
+            context.delete(itemToBeEdit!)
+        }
+        ad.saveContext()
+       _ = navigationController?.popViewController(animated: true)
+    }
+    @IBAction func addImage(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
+    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            thmbImage.image = img
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
 }

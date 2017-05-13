@@ -159,7 +159,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="PDs-3M-0CL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="PDs-3M-0CL">
                                 <rect key="frame" x="16" y="72" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="7hI-PA-Ng6"/>
@@ -172,10 +172,13 @@
                                     <constraint firstAttribute="height" constant="120" id="bCn-Xh-599"/>
                                     <constraint firstAttribute="width" constant="120" id="s1A-sR-eI0"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="bws-6B-wQw" eventType="touchUpInside" id="XHQ-TV-nHB"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-QQ-UHh" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="146" y="85" width="203" height="45"/>
-                                <color key="backgroundColor" red="0.18623942139999999" green="0.33111143110000002" blue="0.56622886660000005" alpha="0.70358032979999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.59215686274509804" blue="0.65490196078431373" alpha="0.78618673312883436" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99207025770000001" green="0.99221223589999996" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="kY4-nu-HW9"/>
@@ -194,7 +197,7 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6DL-XM-ytW" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="146" y="138" width="203" height="45"/>
-                                <color key="backgroundColor" red="0.18623942139999999" green="0.33111143110000002" blue="0.56622886660000005" alpha="0.70358032979999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.59215686274509804" blue="0.65490196078431373" alpha="0.70358032979999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99207025770000001" green="0.99221223589999996" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ExW-hy-RsR"/>
@@ -216,7 +219,7 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hGa-0l-ugv" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="16" y="200" width="333" height="80"/>
-                                <color key="backgroundColor" red="0.18623942139999999" green="0.33111143110000002" blue="0.56622886660000005" alpha="0.70358032979999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.59215686274509804" blue="0.65490196078431373" alpha="0.70358032979999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99207025770000001" green="0.99221223589999996" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ZgJ-24-8rm"/>
@@ -295,12 +298,16 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="jd8-zs-jBw">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="kOQ-FA-Owd">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="bws-6B-wQw" id="52m-G7-Zy9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsTextField" destination="hGa-0l-ugv" id="brI-V7-5Vm"/>
                         <outlet property="priceTextField" destination="6DL-XM-ytW" id="bCy-gg-9j1"/>
                         <outlet property="storePicker" destination="std-Of-jo6" id="E6r-Ro-u0C"/>
+                        <outlet property="thmbImage" destination="PDs-3M-0CL" id="rYC-op-7Ly"/>
                         <outlet property="titleTextField" destination="ObA-QQ-UHh" id="Nx4-Zv-2QA"/>
                     </connections>
                 </viewController>
